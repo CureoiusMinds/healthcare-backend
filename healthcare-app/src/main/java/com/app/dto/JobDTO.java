@@ -35,8 +35,7 @@ public class JobDTO {
 	String description;
 	Specialization specialization;
 	double price;
-	
-    private Long hospitalId;
+
     LocalDate date;
 	Double duration;
 

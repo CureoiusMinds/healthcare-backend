@@ -34,6 +34,7 @@ public class Job extends BaseEntity{
 	@Column(length = 10)
 	Double duration;
 	@ManyToOne
+	@JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
 	@ManyToMany

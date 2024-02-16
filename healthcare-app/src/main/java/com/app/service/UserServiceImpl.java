@@ -5,8 +5,6 @@ import com.app.entities.UserEntity;
 
 import javax.validation.Valid;
 
-import org.apache.catalina.User;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +18,6 @@ import com.app.dto.ApiResponse;
 import com.app.dto.DoctorSignup;
 import com.app.dto.Signup;
 import com.app.entities.Doctor;
-import com.app.entities.UserEntity;
 import com.app.entities.UserRole;
 
 
@@ -48,9 +45,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Signup userRegistration(Signup reqDTO) {
 		//dto --> entity
-		UserEntity user=mapper.map(reqDTO, UserEntity.class);
+		UserEntity user = mapper.map(reqDTO, UserEntity.class);
 		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
 		return mapper.map(userDao.save(user), Signup.class);
+	}
 
 	public ApiResponse doctorRegistration(@Valid DoctorSignup dto) {
 		UserEntity user = new UserEntity();

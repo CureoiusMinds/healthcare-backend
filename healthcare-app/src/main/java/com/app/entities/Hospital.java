@@ -22,6 +22,7 @@ import lombok.Setter;
 public class Hospital extends BaseEntity {
 
 	@OneToOne
+	@MapsId
 	@JoinColumn(name = "hospital_id")
 	UserEntity userEntity;
 
@@ -31,6 +32,6 @@ public class Hospital extends BaseEntity {
 	@Column(length = 100, nullable = false)
 	String location;
 
-	@Enumerated(EnumType.STRING)
-	Specialization specialization;
+	@Column(length = 100)
+	String description;
 }
