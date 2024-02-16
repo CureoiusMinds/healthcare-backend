@@ -19,9 +19,9 @@ public class CustomUserDetailsService {
 
 //	@Override
 //	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-////		Doctor user = userDao.findByEmail(email)
-////				.orElseThrow(() -> new UsernameNotFoundException("Email not found!!!!"));
-////		return new CustomUserDetails(user);
+//		Doctor user = userDao.findByEmail(email)
+//				.orElseThrow(() -> new UsernameNotFoundException("Email not found!!!!"));
+//		return new CustomUserDetails(user);
 //	}
 
 }

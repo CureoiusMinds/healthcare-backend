@@ -27,7 +27,7 @@ DoctorDao doctorDao;
     void insertDoctor()
     {
         UserEntity userEntity = new UserEntity("doctor1", "doctor2", "doc1@gmail.com", "Password@22", UserRole.ROLE_DOCTOR);
-        Doctor doctor = new Doctor();
+        Doctor doctor = new Doctor(userEntity, "A1243");
         doctorDao.save(doctor);
 
          userEntity = new UserEntity("doctor3", "doctor4", "doc2@gmail.com", "Password@22", UserRole.ROLE_DOCTOR);

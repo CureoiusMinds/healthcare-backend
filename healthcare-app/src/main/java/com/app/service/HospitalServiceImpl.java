@@ -88,6 +88,7 @@ public class HospitalServiceImpl implements HospitalService{
         Job job = jobDao.findById(jobId).orElseThrow();
         job.setOpenPositions(job.getOpenPositions()-1);
         job.getDoctorsAccepted().add(doctorDao.getReferenceById(doctorId));
+        job.getDoctorsApplied().remove(doctorDao.getReferenceById(doctorId));
     }
 
     @Override

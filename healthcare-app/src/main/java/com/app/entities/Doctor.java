@@ -25,7 +25,7 @@ public class Doctor extends BaseEntity {
 			@JoinColumn(name = "doctor_id")
 
 	UserEntity userEntity;
-	@Column(length = 14, nullable = false, unique = true)
+	@Column(length = 14, unique = true)
 	private String mobileNo;
 	@Column
 	private LocalDate DoB;
