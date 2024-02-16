@@ -13,10 +13,17 @@ import lombok.Setter;
 public class ApiResponse {
 	private LocalDateTime timeStamp;
 	private String message;
+	private Integer statusCode;
 	public ApiResponse(String message) {
 		super();
 		this.message = message;
 		this.timeStamp=LocalDateTime.now();
 	}
+	public ApiResponse( Integer statusCode,String message) {
+		super();
+		this.message = message;
+		this.statusCode = statusCode;
+	}
+	
 	
 }

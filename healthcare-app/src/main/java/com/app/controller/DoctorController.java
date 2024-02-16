@@ -1,24 +1,29 @@
 package com.app.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.entities.Job;
+
 @RestController
-@RequestMapping("/products")
-public class ProductController {
+@RequestMapping("/doctor")
+public class DoctorController {
 	// any one should be able view the products
-	@GetMapping("/view")
-	public String viewProducts() {
-		return "any one can view the products!!!!!!!!!";
+	@GetMapping("/")
+	public List<Job> getAllJobs() {
+		List<Job> list = new ArrayList<>();
+		return list;
 	}
 	
-	// any authenticated user should be able to browse the categories
-		@GetMapping("/browse_categories")
-		public String browseCategories() {
-			return "any authenticated user should be able to browse the categories";
-		}
+	@GetMapping("/browse_categories")
+	public String browseCategories() {
+		return "any authenticated user should be able to browse the categories";
+	}
 
 	// customer should be able to purchase products
 	@GetMapping("/purchase")

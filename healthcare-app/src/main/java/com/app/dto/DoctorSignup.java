@@ -1,33 +1,37 @@
-package com.app.entities;
+package com.app.dto;
 
-import javax.persistence.*;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.app.entities.Specialization;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-@Entity
-@Table(name = "doctors")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
-@AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
-public class Doctor extends BaseEntity {
-	@OneToOne
-			@MapsId
-			@JoinColumn(name = "doctor_id")
-	UserEntity userEntity;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class DoctorSignup {
+	@Column(length = 20)
+	private String firstName;
+	@Column(length = 20)
+	private String lastName;
+	@Column(length = 30, unique = true)
+	private String email;
+	@Column(length = 300, nullable = false)
+	private String password;
 	@Column(length = 14)
 	private String mobileNo;
 	@Column
 	private LocalDate DoB;
-	@Column
-	private Integer noOfCases;
 	@Column
 	private Integer yearsOfEx;
 	@Column(length = 30)
@@ -51,11 +55,6 @@ public class Doctor extends BaseEntity {
 	@Column
 	@Enumerated(value = EnumType.STRING)
 	Specialization specialization;
-	@ManyToOne
-	@JoinColumn(name = "group_id")
-	private Group group;
 	
-	@ManyToMany(mappedBy = "doctors")
-	Set<Job> jobsApplied = new HashSet<>();
-
+	
 }
