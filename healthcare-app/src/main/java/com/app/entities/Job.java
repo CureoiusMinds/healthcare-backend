@@ -1,5 +1,6 @@
 package com.app.entities;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +29,10 @@ public class Job extends BaseEntity{
 	Specialization specialization;
 	@Column(length = 100)
 	double price;
-	
+	@Column(length = 100)
+	LocalDate date;
+	@Column(length = 10)
+	Double duration;
 	@ManyToOne
     private Hospital hospital;
 
