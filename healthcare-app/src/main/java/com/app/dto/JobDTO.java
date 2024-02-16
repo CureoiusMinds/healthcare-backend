@@ -40,9 +40,6 @@ public class JobDTO {
     LocalDate date;
 	Double duration;
 
-    private Set<Doctor> doctorsApplied = new HashSet<>();
-
-	private Set<Doctor> doctorsAccepted = new HashSet<>();
 
 	private Integer openPositions;
 }

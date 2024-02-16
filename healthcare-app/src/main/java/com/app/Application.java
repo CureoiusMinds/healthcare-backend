@@ -18,7 +18,7 @@ public class Application {
 
 	@Bean // equivalent to <bean id ..../> in xml file
 	public ModelMapper mapper() {
-		ModelMapper modelMapper = new ModelMapper();		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT)
+		ModelMapper modelMapper = new ModelMapper();		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD)
 	.setPropertyCondition(Conditions.isNotNull());
 		return modelMapper;
 	}
