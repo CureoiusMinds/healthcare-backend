@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Table(name = "Job")
-public class Job {
+public class Job extends BaseEntity{
 	
 	@Column(length = 100)
 	String title;
