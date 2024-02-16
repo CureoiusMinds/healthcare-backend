@@ -1,0 +1,14 @@
+To create a digital key store : 
+keytool -genkey -keyalg RSA -alias jwtdemo -keystore jwtdemo.p12 -storepass test#1234 -validity 365 -keysize 4096 -storetype pkcs12
+
+
+Add these properties in application.properties file
+
+# SSL props
+server.ssl.key-store=classpath:jwtdemo.p12
+server.ssl.key-store-type=pkcs12
+server.ssl.key-store-password=test#1234
+server.ssl.key-password=test#1234
+server.ssl.key-alias=jwtdemo
+server.port=8443
+
