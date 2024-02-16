@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dao.JobDao;
 import com.app.dto.ApiResponse;
-import com.app.dto.HospitalDTO;
+import com.app.dto.HospitalSignup;
 import com.app.dto.JobDTO;
 import com.app.entities.Hospital;
 import com.app.service.HospitalService;
@@ -31,22 +31,17 @@ public class HospitalController {
 	HospitalService hospitalService;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<HospitalDTO>> getHospitals()
+	public ResponseEntity<List<HospitalSignup>> getHospitals()
 	{
 		return ResponseEntity.ok(hospitalService.getAllHospitals());
 	}
 	
-	@PostMapping
-	public ResponseEntity<?> addNewHospital(@RequestBody @Valid HospitalDTO hospitalDTO){
-		
-		ApiResponse apiResponse = hospitalService.addHospital(hospitalDTO);
-		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-	}
-	
+	/*
 	@PutMapping("edit/{Id}")
-	public ResponseEntity<?> UpdateHospitalDetails(@PathVariable Long id, @Valid @RequestBody HospitalDTO hospitalDTO){
+	public ResponseEntity<?> UpdateHospitalDetails(@PathVariable Long id, @Valid @RequestBody HospitalSignup hospitalDTO){
 		
 		ApiResponse apiResponse = hospitalService.addHospital(hospitalDTO);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	}
+	*/
 }
