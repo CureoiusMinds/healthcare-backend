@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	public Signup userRegistration(Signup reqDTO) {
 		//dto --> entity
 		Doctor user=mapper.map(reqDTO, Doctor.class);
-		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
+		user.getUserEntity().setPassword(encoder.encode(user.getUserEntity().getPassword()));//pwd : encrypted using SHA
 		return mapper.map(userDao.save(user), Signup.class);
 	}
 

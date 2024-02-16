@@ -20,19 +20,19 @@ public class CustomUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// class : SimpleGrantedAuthority --> GrantedAuthority
 		return List.of(new 
-				SimpleGrantedAuthority(user.getRole().toString()));
+				SimpleGrantedAuthority(user.getUserEntity().getRole().toString()));
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return user.getPassword();
+		return user.getUserEntity().getPassword();
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return user.getEmail();
+		return user.getUserEntity().getEmail();
 	}
 
 	@Override

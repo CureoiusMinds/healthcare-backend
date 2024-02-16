@@ -12,16 +12,16 @@ import com.app.entities.Doctor;
 
 @Service
 @Transactional
-public class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsService {
 	// dep : dao layer
 	@Autowired
 	private UserEntityDao userDao;
 
-	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		Doctor user = userDao.findByEmail(email)
-				.orElseThrow(() -> new UsernameNotFoundException("Email not found!!!!"));
-		return new CustomUserDetails(user);
-	}
+//	@Override
+//	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+////		Doctor user = userDao.findByEmail(email)
+////				.orElseThrow(() -> new UsernameNotFoundException("Email not found!!!!"));
+////		return new CustomUserDetails(user);
+//	}
 
 }

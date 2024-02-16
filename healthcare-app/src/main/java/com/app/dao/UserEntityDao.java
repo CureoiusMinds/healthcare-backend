@@ -8,5 +8,5 @@ import com.app.entities.Doctor;
 
 public interface UserEntityDao extends JpaRepository<Doctor,Long>{
 //derived finder
-	Optional<Doctor> findByEmail(String email);
+//	Optional<Doctor> findByE(String email);
 }
