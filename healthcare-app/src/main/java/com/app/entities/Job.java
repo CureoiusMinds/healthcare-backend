@@ -36,7 +36,7 @@ public class Job extends BaseEntity{
 	
 	@ManyToMany
     @JoinTable(
-            name = "job_doctor",
+            name = "job_doctors_applied",
             joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "doctor_id")
     )

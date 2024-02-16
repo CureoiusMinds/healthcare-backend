@@ -8,24 +8,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "doctors")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-//@AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
+@AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
 public class Doctor extends BaseEntity {
-	@Column(length = 20)
-	private String firstName;
-	@Column(length = 20)
-	private String lastName;
-	@Column(length = 30, unique = true)
-	private String email;
-	@Column(length = 30, nullable = false)
-	private String password;
-	@Enumerated(EnumType.STRING)
-	@Column(length = 30)
-	private UserRole role;
+	@OneToOne
+			@MapsId
+			@JoinColumn(name = "doctor_id")
+	UserEntity userEntity;
 	@Column(length = 14)
 	private String mobileNo;
 	@Column
@@ -58,5 +54,8 @@ public class Doctor extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "group_id")
 	private Group group;
+
+	@ManyToMany(mappedBy = "doctors")
+	Set<Job> jobsApplied = new HashSet<>();
 
 }
