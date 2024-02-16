@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.ApiResponse;
+import com.app.dto.DoctorSignup;
 import com.app.dto.SigninRequest;
 import com.app.dto.SigninResponse;
 import com.app.dto.Signup;
@@ -23,6 +25,7 @@ import com.app.service.UserService;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UserSignInSignUpController {
 	@Autowired
 	private UserService userService;
@@ -33,10 +36,11 @@ public class UserSignInSignUpController {
 	private AuthenticationManager mgr;
 
 	// sign up
-	@PostMapping("/signup")
-	public ResponseEntity<?> userSignup(@RequestBody @Valid Signup dto) {
+	@PostMapping("/doctor/signup")
+	public ResponseEntity<?> doctorSignup(@RequestBody @Valid DoctorSignup dto) {
 		System.out.println("in sign up " + dto);
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.userRegistration(dto));
+		ApiResponse response =  userService.doctorRegistration(dto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
 	/*
