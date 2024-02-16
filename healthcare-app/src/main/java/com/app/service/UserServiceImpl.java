@@ -50,12 +50,6 @@ public class UserServiceImpl implements UserService {
 //		//dto --> entity
 //	}
 
-	@Override
-	public Signup userRegistration(Signup reqDTO) {
-		//dto --> entity
-		UserEntity user=mapper.map(reqDTO, UserEntity.class);
-		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
-		return mapper.map(userDao.save(user), Signup.class);
 
 	public ApiResponse doctorRegistration(@Valid DoctorSignup dto) {
 		UserEntity user = new UserEntity();
@@ -76,6 +70,7 @@ public class UserServiceImpl implements UserService {
 		//doctor.getUserEntity().setPassword(encoder.encode(user.getUserEntity().getPassword()));//pwd : encrypted using SHA
 		return new ApiResponse(HttpStatus.OK.value(),"Doctor Registration successful.");
 	}
+<<<<<<< Updated upstream
 
 	public ApiResponse hospitalRegistration(@Valid HospitalSignup dto) {
 		UserEntity user = new UserEntity();
@@ -91,4 +86,6 @@ public class UserServiceImpl implements UserService {
 		hospitalDao.save(hospital);
 		return new ApiResponse(HttpStatus.OK.value(),"Hospital Registration successful.");
 	}
+=======
+>>>>>>> Stashed changes
 }
