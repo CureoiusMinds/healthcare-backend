@@ -1,5 +1,6 @@
 package com.app.service;
 
+import com.app.entities.UserEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,8 +27,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Signup userRegistration(Signup reqDTO) {
 		//dto --> entity
-		Doctor user=mapper.map(reqDTO, Doctor.class);
-		user.getUserEntity().setPassword(encoder.encode(user.getUserEntity().getPassword()));//pwd : encrypted using SHA
+		UserEntity user=mapper.map(reqDTO, UserEntity.class);
+		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
 		return mapper.map(userDao.save(user), Signup.class);
 	}
 
