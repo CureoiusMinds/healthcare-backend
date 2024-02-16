@@ -50,12 +50,6 @@ public class UserServiceImpl implements UserService {
 //		//dto --> entity
 //	}
 
-	@Override
-	public Signup userRegistration(Signup reqDTO) {
-		//dto --> entity
-		UserEntity user=mapper.map(reqDTO, UserEntity.class);
-		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
-		return mapper.map(userDao.save(user), Signup.class);
 
 	public ApiResponse doctorRegistration(@Valid DoctorSignup dto) {
 		UserEntity user = new UserEntity();
