@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter @Setter @NoArgsConstructor
 public class ApiResponse {
+
     private Integer status=200;
     private String message;
     private LocalDateTime timeNow;

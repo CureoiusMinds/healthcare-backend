@@ -1,6 +1,8 @@
 package com.app.controller;
 
+
 import com.app.dto.DoctorPutDTO;
+
 import com.app.dto.GroupDTO;
 import com.app.entities.Doctor;
 import com.app.service.DoctorService;
@@ -84,5 +86,6 @@ public class DoctorController {
         doctorService.deleteGroup(doc_id);
         return ResponseEntity.ok().build();
     }
+
 
 }

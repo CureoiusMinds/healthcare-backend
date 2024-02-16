@@ -59,6 +59,7 @@ public class Doctor extends BaseEntity {
 	@JoinColumn(name = "group_id")
 	private Group group;
 
+
 	@ManyToMany(mappedBy = "doctorsApplied")
 	Set<Job> jobsApplied = new HashSet<>();
 
