@@ -11,11 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.DoctorDao;
+import com.app.dao.HospitalDao;
 import com.app.dao.UserEntityDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.DoctorSignup;
+import com.app.dto.HospitalSignup;
 import com.app.dto.Signup;
 import com.app.entities.Doctor;
+import com.app.entities.Hospital;
 import com.app.entities.UserEntity;
 import com.app.entities.UserRole;
 
@@ -29,6 +32,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private DoctorDao doctorDao;
+	@Autowired
+	private HospitalDao hospitalDao;
 	//dep
 	@Autowired
 	private ModelMapper mapper;
@@ -62,5 +67,18 @@ public class UserServiceImpl implements UserService {
 		return new ApiResponse(HttpStatus.OK.value(),"Doctor Registration successful.");
 	}
 
-
+	public ApiResponse hospitalRegistration(@Valid HospitalSignup dto) {
+		UserEntity user = new UserEntity();
+		user.setFirstName(dto.getFirstName());
+		user.setLastName(dto.getLastName());
+		user.setEmail(dto.getEmail());
+		user.setPassword(encoder.encode(dto.getPassword()));
+		user.setRole(UserRole.ROLE_HOSPITAL);
+		
+		UserEntity persistUser =  userDao.save(user);
+		Hospital hospital = mapper.map(dto, Hospital.class);
+		hospital.setUserEntity(persistUser);
+		hospitalDao.save(hospital);
+		return new ApiResponse(HttpStatus.OK.value(),"Hospital Registration successful.");
+	}
 }

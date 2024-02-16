@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ApiResponse;
 import com.app.dto.DoctorSignup;
+import com.app.dto.HospitalSignup;
 import com.app.dto.SigninRequest;
 import com.app.dto.SigninResponse;
 import com.app.dto.Signup;
+import com.app.entities.Hospital;
 import com.app.security.JwtUtils;
 import com.app.service.UserService;
 
@@ -48,6 +50,13 @@ public class UserSignInSignUpController {
 	 * success : Auth Resp DTO : mesg + JWT token + SC 200 IN case of failure : SC
 	 * 401
 	 */
+	@PostMapping("/hospital/signup")
+	public ResponseEntity<?> hospitalSignup(@RequestBody @Valid HospitalSignup dto) {
+		
+		ApiResponse response =  userService.hospitalRegistration(dto);
+		return  ResponseEntity.status(HttpStatus.CREATED).body(response);
+	}
+	
 	
 	@CrossOrigin("*")
 	@PostMapping("/signin")

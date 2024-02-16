@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.dao.HospitalDao;
 import com.app.dto.ApiResponse;
-import com.app.dto.HospitalDTO;
+import com.app.dto.HospitalSignup;
 import com.app.dto.JobDTO;
 import com.app.entities.Hospital;
 import com.app.entities.Job;
@@ -26,22 +26,15 @@ public class HospitalService {
 	@Autowired
 	ModelMapper mapper;
 	
-	public List<HospitalDTO> getAllHospitals()
+	public List<HospitalSignup> getAllHospitals()
 	{
 		List<Hospital> hospitals = hospitalDao.findAll();
-		List<HospitalDTO> hospitalDTOs = 
-				hospitals.stream().map(e->(mapper.map(e, HospitalDTO.class))).collect(Collectors.toList());
+		List<HospitalSignup> hospitalDTOs = 
+				hospitals.stream().map(e->(mapper.map(e, HospitalSignup.class))).collect(Collectors.toList());
 		return hospitalDTOs;
 	}
 	
-	public ApiResponse addHospital( HospitalDTO hospitalDTO) {
-		
-		Hospital hospitaldto = mapper.map(hospitalDTO, Hospital.class);
-		hospitalDao.save(hospitaldto);
-		return new ApiResponse(201,"course added successfully!!");
-	}
-	
-	public ApiResponse updateHospitalDetails(Long id, @Valid HospitalDTO hospitalDTO) {
+	public ApiResponse updateHospitalDetails(Long id, @Valid HospitalSignup hospitalDTO) {
 		Hospital hospital = hospitalDao.findById(id).orElseThrow(()->new ResourceNotFound("Course not found!!"));
 		Hospital updatedHospital = mapper.map(hospitalDTO, Hospital.class);
 		hospitalDao.save(updatedHospital);

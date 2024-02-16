@@ -15,8 +15,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class HospitalDTO {
-
+public class HospitalSignup {
+	
+	
+	
+	private String firstName;
+	
+	private String lastName;
+	
+	private String email;
+	
+	private String password;
+	
 	String name;
 	
 	String location;
