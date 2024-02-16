@@ -17,14 +17,15 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Table(name = "Job")
-public class Job {
+public class Job extends BaseEntity{
 	
+	@Column(length = 100)
 	String title;
-	
+	@Column(length = 100)
 	String description;
-	
+	@Enumerated(EnumType.STRING)
 	Specialization specialization;
-	
+	@Column(length = 100)
 	double price;
 	
 	

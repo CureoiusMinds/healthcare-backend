@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "doctors")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
+//@AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
 public class Doctor extends BaseEntity {
 	@Column(length = 20)
 	private String firstName;
@@ -21,7 +21,7 @@ public class Doctor extends BaseEntity {
 	private String lastName;
 	@Column(length = 30, unique = true)
 	private String email;
-	@Column(length = 300, nullable = false)
+	@Column(length = 30, nullable = false)
 	private String password;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 30)
