@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.UserEntityDao;
 import com.app.dto.Signup;
-import com.app.entities.UserEntity;
+import com.app.entities.Doctor;
 
 @Service
 @Transactional
@@ -19,14 +19,14 @@ public class UserServiceImpl implements UserService {
 	//dep
 	@Autowired
 	private ModelMapper mapper;
-	//dep 
+	//dep
 	@Autowired
 	private PasswordEncoder encoder;
 
 	@Override
 	public Signup userRegistration(Signup reqDTO) {
 		//dto --> entity
-		UserEntity user=mapper.map(reqDTO, UserEntity.class);
+		Doctor user=mapper.map(reqDTO, Doctor.class);
 		user.setPassword(encoder.encode(user.getPassword()));//pwd : encrypted using SHA
 		return mapper.map(userDao.save(user), Signup.class);
 	}

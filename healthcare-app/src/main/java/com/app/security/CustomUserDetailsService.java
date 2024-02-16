@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.UserEntityDao;
-import com.app.entities.UserEntity;
+import com.app.entities.Doctor;
 
 @Service
 @Transactional
@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		UserEntity user = userDao.findByEmail(email)
+		Doctor user = userDao.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("Email not found!!!!"));
 		return new CustomUserDetails(user);
 	}
