@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "doctor_groups")
@@ -24,4 +26,10 @@ public class Group extends BaseEntity{
     private String description;
     @OneToMany(mappedBy = "group")
     private List<Doctor> doctorList;
+
+    @ManyToMany(mappedBy = "groupsApplied")
+    Set<Job> jobsApplied = new HashSet<>();
+
+    @ManyToMany(mappedBy = "groupsAccepted")
+    Set<Job> jobsAccepted = new HashSet<>();
 }

@@ -23,6 +23,7 @@ public class Hospital extends BaseEntity {
 
 	@OneToOne
 	@JoinColumn(name = "hospital_id")
+			@MapsId
 	UserEntity userEntity;
 
 	@Column(length = 100, nullable = false)
@@ -33,4 +34,6 @@ public class Hospital extends BaseEntity {
 
 	@Column(length = 100)
 	String description;
+
+
 }

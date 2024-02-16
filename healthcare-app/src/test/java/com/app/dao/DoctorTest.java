@@ -1,7 +1,9 @@
 package com.app.dao;
 
 import com.app.entities.Doctor;
-import com.app.entities.Specialization;
+
+import com.app.entities.Hospital;
+
 import com.app.entities.UserEntity;
 import com.app.entities.UserRole;
 
@@ -22,7 +24,7 @@ import org.springframework.test.annotation.Rollback;
 @Rollback(value = false) @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class DoctorTest {
 
-/*
+
     @Test
     void insertDoctor()
     {
@@ -106,8 +108,4 @@ public class DoctorTest {
     }
     
     
-    
-    
-    
-
 }

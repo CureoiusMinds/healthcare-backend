@@ -25,7 +25,7 @@ public class Doctor extends BaseEntity {
 			@JoinColumn(name = "doctor_id")
 
 	UserEntity userEntity;
-	@Column(length = 14)
+	@Column(length = 14, nullable = false, unique = true)
 	private String mobileNo;
 	@Column
 	private LocalDate DoB;
@@ -49,7 +49,7 @@ public class Doctor extends BaseEntity {
 	private String state;
 	@Column(length = 30)
 	private String country;
-	@Column(length = 50)
+	@Column(length = 50, nullable = false, unique = true)
 	private String medicalLicenseId;
 	@Column
 	@Enumerated(value = EnumType.STRING)
