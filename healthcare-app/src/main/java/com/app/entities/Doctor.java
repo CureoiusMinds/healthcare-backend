@@ -21,7 +21,7 @@ public class Doctor extends BaseEntity {
 	private String lastName;
 	@Column(length = 30, unique = true)
 	private String email;
-	@Column(length = 300, nullable = false)
+	@Column(length = 30, nullable = false)
 	private String password;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 30)
