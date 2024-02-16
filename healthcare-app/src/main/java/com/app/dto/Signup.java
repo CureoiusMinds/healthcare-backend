@@ -36,5 +36,4 @@ public class Signup {
 		this.role = role;
 	}
 	
-	
 }
