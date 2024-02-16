@@ -19,12 +19,13 @@ import lombok.Setter;
 @Table(name = "Job")
 public class Job {
 	
+	@Column(length = 100)
 	String title;
-	
+	@Column(length = 100)
 	String description;
-	
+	@Enumerated(EnumType.STRING)
 	Specialization specialization;
-	
+	@Column(length = 100)
 	double price;
 	
 	
