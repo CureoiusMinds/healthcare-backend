@@ -13,7 +13,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import com.app.entities.Hospital;
-import com.app.entities.Specialization;
 import com.app.entities.UserEntity;
 import com.app.entities.UserRole;
 
@@ -38,11 +37,11 @@ public class HospitalTest {
         UserEntity admin5 = userEntityDao.save(new UserEntity("HospitalAdmin5", "Admin", "admin5@hospital.com", "password", UserRole.ROLE_HOSPITAL));
 
         // Create Hospital entities and link with UserEntities
-        Hospital hospital1 = createHospital(admin1, "Hospital 1", "Location 1", Specialization.GYNECOLOGY);
-        Hospital hospital2 = createHospital(admin2, "Hospital 2", "Location 2", Specialization.CARDIOLOGY);
-        Hospital hospital3 = createHospital(admin3, "Hospital 3", "Location 3", Specialization.NEUROLOGY);
-        Hospital hospital4 = createHospital(admin4, "Hospital 4", "Location 4", Specialization.ORTHOPEDICS);
-        Hospital hospital5 = createHospital(admin5, "Hospital 5", "Location 5", Specialization.ORTHOPEDICS);
+        Hospital hospital1 = createHospital(admin1, "Hospital 1", "Location 1");
+        Hospital hospital2 = createHospital(admin2, "Hospital 2", "Location 2");
+        Hospital hospital3 = createHospital(admin3, "Hospital 3", "Location 3");
+        Hospital hospital4 = createHospital(admin4, "Hospital 4", "Location 4");
+        Hospital hospital5 = createHospital(admin5, "Hospital 5", "Location 5");
 
         // Save Hospitals
         hospitalRepository.saveAll(List.of(hospital1, hospital2, hospital3, hospital4, hospital5));
@@ -55,12 +54,11 @@ public class HospitalTest {
         assertThat(hospital5.getId()).isNotNull();
     }
 
-    private Hospital createHospital(UserEntity userEntity, String name, String location, Specialization specialization) {
+    private Hospital createHospital(UserEntity userEntity, String name, String location) {
         Hospital hospital = new Hospital();
         hospital.setUserEntity(userEntity);
         hospital.setName(name);
         hospital.setLocation(location);
-        hospital.setSpecialization(specialization);
         return hospital;
     }
 

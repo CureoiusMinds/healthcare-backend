@@ -11,6 +11,8 @@ public interface HospitalService {
 	void updateHospital(Long hospId, HospitalDTO hospitalDTO);
 	List<JobDTO> getJobsPosted(Long hospId);
 	JobDTO getJob(Long hospId, Long jobId);
+
+	void addJob(Long hospId, JobDTO jobDTO);
 	void updateJob(Long hospId, Long jobId, JobDTO jobDTO);
 	void deleteJob(Long hospId, Long jobId);
 	List<DoctorGetDTO> getApplicants(Long hospId, Long jobId);

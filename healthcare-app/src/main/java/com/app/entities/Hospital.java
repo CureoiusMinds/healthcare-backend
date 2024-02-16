@@ -35,5 +35,9 @@ public class Hospital extends BaseEntity {
 	@Column(length = 100)
 	String description;
 
-
+	public Hospital(UserEntity userEntity, String name, String location) {
+		this.userEntity = userEntity;
+		this.name = name;
+		this.location = location;
+	}
 }

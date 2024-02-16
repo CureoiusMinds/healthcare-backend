@@ -38,6 +38,11 @@ public class HospitalController {
 	{
 		return ResponseEntity.ok().body(hospitalService.getJobsPosted(hosp_id));
 	}
+	@PostMapping("/jobs/add")
+	public ResponseEntity<?> getAllJobs(@PathVariable Long hosp_id, @RequestBody JobDTO jobDTO)
+	{
+		return ResponseEntity.ok().body(hospitalService.getJobsPosted(hosp_id));
+	}
 
 	@GetMapping("/jobs/{job_id}")
 	public ResponseEntity<?> getJob(@PathVariable Long hosp_id, @PathVariable Long job_id)

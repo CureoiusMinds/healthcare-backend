@@ -55,6 +55,12 @@ public class HospitalServiceImpl implements HospitalService{
     }
 
     @Override
+    public void addJob(Long hospId, JobDTO jobDTO) {
+        Job job = mapper.map(jobDTO, Job.class);
+        jobDao.save(job);
+    }
+
+    @Override
     public void updateJob(Long hospId, Long jobId, JobDTO jobDTO) {
         Job job = jobDao.findById(jobId).orElseThrow();
         mapper.map(jobDTO, job);
