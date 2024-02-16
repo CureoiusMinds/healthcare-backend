@@ -31,6 +31,6 @@ public class Hospital extends BaseEntity {
 	@Column(length = 100, nullable = false)
 	String location;
 
-	@Enumerated(EnumType.STRING)
-	Specialization specialization;
+	@Column(length = 100)
+	String description;
 }
