@@ -1,6 +1,7 @@
 package com.app.dao;
 
 import com.app.entities.Doctor;
+import com.app.entities.Hospital;
 import com.app.entities.UserEntity;
 import com.app.entities.UserRole;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,9 @@ public class DoctorTest {
 
     @Autowired
     DoctorDao doctorDao;
+
+    @Autowired
+    HospitalDao hospitalDao;
 
     @Test
     void insertDoctor()
@@ -42,5 +46,13 @@ public class DoctorTest {
         doctor = new Doctor(userEntity, "E092834");
         doctorDao.save(doctor);
 
+    }
+
+    @Test
+    void insertHospital()
+    {
+        UserEntity userEntity = new UserEntity("Hospital1", "hosp", "hosp@gmail.com", "Password@22", UserRole.ROLE_HOSPITAL);
+        Hospital hospital = new Hospital(userEntity, "Life Save","Pune","good hospital");
+        hospitalDao.save(hospital);
     }
 }

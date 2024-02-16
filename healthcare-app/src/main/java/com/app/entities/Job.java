@@ -52,6 +52,23 @@ public class Job extends BaseEntity{
 	)
 	private Set<Doctor> doctorsAccepted = new HashSet<>();
 
+
+	@ManyToMany
+	@JoinTable(
+			name = "job_groups_applied",
+			joinColumns = @JoinColumn(name = "job_id"),
+			inverseJoinColumns = @JoinColumn(name = "doctor_id")
+	)
+	private Set<Doctor> groupsApplied = new HashSet<>();
+
+	@ManyToMany
+	@JoinTable(
+			name = "job_groups_accepted",
+			joinColumns = @JoinColumn(name = "job_id"),
+			inverseJoinColumns = @JoinColumn(name = "doctor_id")
+	)
+	private Set<Doctor> groupsAccepted = new HashSet<>();
+
 	private Integer openPositions;
 	
 }
