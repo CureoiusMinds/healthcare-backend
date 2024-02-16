@@ -22,7 +22,6 @@ import lombok.Setter;
 public class Hospital extends BaseEntity {
 
 	@OneToOne
-	@MapsId
 	@JoinColumn(name = "hospital_id")
 	UserEntity userEntity;
 
