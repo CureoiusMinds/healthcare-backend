@@ -43,7 +43,7 @@ public class SecurityConfig {
 		authorizeRequests()
 
 		.antMatchers("/products/view","/users/signup","/users/signin",
-				"/v*/api-doc*/**","/swagger-ui/**","/hospitals/**","/users/**","/doctor/**").permitAll()
+				"/v*/api-doc*/**","/swagger-ui/**","/hospitals/**","/users/**","/doctor/**","/jobs/**").permitAll()
 
 
 		// only required for JS clnts (react / angular) : for the pre flight requests
