@@ -2,10 +2,12 @@ package com.app.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -21,6 +23,7 @@ public class Doctor extends BaseEntity {
 	@OneToOne
 			@MapsId
 			@JoinColumn(name = "doctor_id")
+
 	UserEntity userEntity;
 	@Column(length = 14)
 	private String mobileNo;
@@ -51,6 +54,7 @@ public class Doctor extends BaseEntity {
 	@Column
 	@Enumerated(value = EnumType.STRING)
 	Specialization specialization;
+
 	@ManyToOne
 	@JoinColumn(name = "group_id")
 	private Group group;
@@ -62,4 +66,8 @@ public class Doctor extends BaseEntity {
 	@ManyToMany(mappedBy = "doctorsAccepted")
 	Set<Job> jobsAccepted = new HashSet<>();
 
+	public Doctor(UserEntity userEntity, String medicalLicenseId) {
+		this.userEntity = userEntity;
+		this.medicalLicenseId = medicalLicenseId;
+	}
 }
