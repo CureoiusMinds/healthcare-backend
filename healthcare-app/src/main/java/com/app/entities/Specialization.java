@@ -1,7 +1,7 @@
 package com.app.entities;
 
 public enum Specialization {
-	OPERATION,
+	SURGERY,
     CHECK_UP,
     CARDIOLOGY,
     ONCOLOGY,

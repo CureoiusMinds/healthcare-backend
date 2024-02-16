@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.app.entities.UserEntity;
+import com.app.entities.Doctor;
 
-public interface UserEntityDao extends JpaRepository<UserEntity,Long>{
-//derived finder 
-	Optional<UserEntity> findByEmail(String email);
+public interface UserEntityDao extends JpaRepository<Doctor,Long>{
+//derived finder
+	Optional<Doctor> findByEmail(String email);
 }
