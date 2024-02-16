@@ -5,6 +5,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.app.entities.Specialization;
+import com.app.entities.UserEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 
 public class HospitalDTO {
 
+	
 	String name;
 	
 	String location;

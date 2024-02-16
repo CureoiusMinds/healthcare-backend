@@ -36,17 +36,17 @@ public class HospitalController {
 		return ResponseEntity.ok(hospitalService.getAllHospitals());
 	}
 	
-	@PostMapping
-	public ResponseEntity<?> addNewHospital(@RequestBody @Valid HospitalDTO hospitalDTO){
+	@PostMapping("/add/{userID}")
+	public ResponseEntity<?> addNewHospital(@PathVariable Long userID, @RequestBody @Valid HospitalDTO hospitalDTO){
 		
-		ApiResponse apiResponse = hospitalService.addHospital(hospitalDTO);
+		ApiResponse apiResponse = hospitalService.addHospital(userID,hospitalDTO);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	}
 	
-	@PutMapping("edit/{Id}")
-	public ResponseEntity<?> UpdateHospitalDetails(@PathVariable Long id, @Valid @RequestBody HospitalDTO hospitalDTO){
+	@PutMapping("edit/{userID}")
+	public ResponseEntity<?> UpdateHospitalDetails(@PathVariable Long userID, @Valid @RequestBody HospitalDTO hospitalDTO){
 		
-		ApiResponse apiResponse = hospitalService.addHospital(hospitalDTO);
+		ApiResponse apiResponse = hospitalService.addHospital(userID,hospitalDTO);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	}
 }
